@@ -64,11 +64,21 @@ def iterate_data():
         average_reply_time_normalized = normalize_data(row['average_reply_time'], average_reply_time_min, average_reply_time_max)
         distance_normalized = normalize_data(row['distance_to_office'], distance_min, distance_max)
 
-        score = (age_normalized * age_weight + 
-                 accepted_offers_normalized * accepted_offers_weight + 
-                 canceled_offers_normalized * cancelled_offers_weight + 
-                 average_reply_time_normalized * average_reply_time_weight + 
-                 distance_normalized * distance_weight) * 10
+        # For 'positive' criteria, such as age and offers accepted:
+        age_score = age_normalized * age_weight  
+        accepted_offers_score = accepted_offers_normalized * accepted_offers_weight  
+
+        # For 'negative' criteria, like offers canceled and response time:
+        canceled_offers_score = (1 - canceled_offers_normalized) * cancelled_offers_weight 
+        average_reply_time_score = (1 - average_reply_time_normalized) * average_reply_time_weight  
+
+        # Note: The inversion (1 - normalized_value) assumes that higher values are worse. 
+
+        distance_score = distance_normalized * distance_weight  # Calculate the score for distance, may be neutral
+
+        # Calculate the final score
+        score = (age_score + accepted_offers_score + canceled_offers_score + average_reply_time_score + distance_score) * 10  # Final score calculation
+
         
         df.at[index, 'score'] = score
 
