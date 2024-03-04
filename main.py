@@ -102,7 +102,7 @@ def calculate_distances(row):
 
 def sort_and_make_json():
     # Eliminate distance to office column because it's no loger used
-    # df.drop('distance_to_office', axis=1, inplace=True)
+    df.drop('distance_to_office', axis=1, inplace=True)
 
     # Sort df by "score" column
     df_sorted = df.sort_values(by='score', ascending=False)

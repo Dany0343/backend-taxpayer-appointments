@@ -1,1 +1,112 @@
-[{"id":"d4088ff7-d713-4061-bcc4-f772547e3918","name":"Danielle Johnson","location":{"latitude":21.28306,"longitude":-89.66123},"age":39,"accepted_offers":95,"canceled_offers":100,"average_reply_time":3434,"distance_to_office":1017.3339025587,"score":9.0509346878},{"id":"3ffdd31f-91c7-4e1d-ad35-8ffc13addef2","name":"Cindy Newton","location":{"latitude":21.28306,"longitude":-89.66123},"age":89,"accepted_offers":91,"canceled_offers":77,"average_reply_time":3253,"distance_to_office":1017.3339025587,"score":8.8346276711},{"id":"72ef7dce-376e-42a6-ac07-1cf1e47638ec","name":"Hunter Thompson","location":{"latitude":25.87972,"longitude":-97.50417},"age":60,"accepted_offers":93,"canceled_offers":100,"average_reply_time":3061,"distance_to_office":740.4404470185,"score":8.7987485308},{"id":"5000f27b-9b72-42e6-a35b-8ec058375c8a","name":"Kyle Patton","location":{"latitude":20.22816,"longitude":-103.5687},"age":71,"accepted_offers":92,"canceled_offers":99,"average_reply_time":3292,"distance_to_office":467.8661842039,"score":8.7481915757},{"id":"f26bf956-f871-4f48-abc1-e83d96c9b54e","name":"Diane Palmer","location":{"latitude":16.75973,"longitude":-93.11308},"age":78,"accepted_offers":80,"canceled_offers":97,"average_reply_time":3021,"distance_to_office":705.9546359615,"score":8.5120802218},{"id":"67ef7e9e-c03f-4034-b399-a177217a56b1","name":"Joe Flores","location":{"latitude":16.75973,"longitude":-93.11308},"age":84,"accepted_offers":85,"canceled_offers":93,"average_reply_time":2782,"distance_to_office":705.9546359615,"score":8.4923770954},{"id":"493b1112-868a-4123-aa4b-938efb6f6d23","name":"Cassandra Smith","location":{"latitude":25.87972,"longitude":-97.50417},"age":89,"accepted_offers":74,"canceled_offers":93,"average_reply_time":3144,"distance_to_office":740.4404470185,"score":8.4677272548},{"id":"5fba6dc2-b594-4706-a7fb-881e3a88a4ab","name":"Heather Ramirez","location":{"latitude":19.04222,"longitude":-98.11889},"age":69,"accepted_offers":98,"canceled_offers":98,"average_reply_time":2927,"distance_to_office":119.072801605,"score":8.3192872366},{"id":"96b687fe-99f3-42f0-b189-d067d496ecb2","name":"Christopher Jackson","location":{"latitude":20.22816,"longitude":-103.5687},"age":88,"accepted_offers":97,"canceled_offers":74,"average_reply_time":3062,"distance_to_office":467.8661842039,"score":8.2562759682},{"id":"de7c2fb0-a96e-4d2f-9312-585790894dfc","name":"Nancy Ward","location":{"latitude":20.28527,"longitude":-103.42897},"age":78,"accepted_offers":78,"canceled_offers":91,"average_reply_time":3276,"distance_to_office":454.8080709849,"score":8.1634809133}]
+[
+  {
+    "id": "20d5c16e-9611-49cf-bfbd-fd47dc7972f0",
+    "name": "Mr. Richard Reed",
+    "location": { "latitude": 21.28306, "longitude": -89.66123 },
+    "age": 89,
+    "accepted_offers": 90,
+    "canceled_offers": 27,
+    "average_reply_time": 726,
+    "distance_to_office": 1017.3339025587,
+    "score": 8.4742185422
+  },
+  {
+    "id": "1426a5dc-3536-463b-8768-a5c99d0a4fac",
+    "name": "Joshua Love",
+    "location": { "latitude": 20.28527, "longitude": -103.42897 },
+    "age": 61,
+    "accepted_offers": 94,
+    "canceled_offers": 0,
+    "average_reply_time": 810,
+    "distance_to_office": 454.8080709849,
+    "score": 8.4074004173
+  },
+  {
+    "id": "5a31a6a6-9b87-4c5e-ad7f-e9b21a9e8547",
+    "name": "Gabriella Gray",
+    "location": { "latitude": 21.28306, "longitude": -89.66123 },
+    "age": 64,
+    "accepted_offers": 81,
+    "canceled_offers": 15,
+    "average_reply_time": 558,
+    "distance_to_office": 1017.3339025587,
+    "score": 8.3105114884
+  },
+  {
+    "id": "ce5e761b-7b59-41c0-bd08-b032f9ad5202",
+    "name": "Bradley Horn",
+    "location": { "latitude": 16.75973, "longitude": -93.11308 },
+    "age": 35,
+    "accepted_offers": 97,
+    "canceled_offers": 14,
+    "average_reply_time": 226,
+    "distance_to_office": 705.9546359615,
+    "score": 8.2919078187
+  },
+  {
+    "id": "5dd64593-31f2-4908-a38d-bb7e3ad361de",
+    "name": "Edward Stevens",
+    "location": { "latitude": 21.28306, "longitude": -89.66123 },
+    "age": 82,
+    "accepted_offers": 76,
+    "canceled_offers": 5,
+    "average_reply_time": 1401,
+    "distance_to_office": 1017.3339025587,
+    "score": 8.2412657328
+  },
+  {
+    "id": "33213ea4-34f9-46f1-b780-e7d069fd6b99",
+    "name": "Joe Wheeler",
+    "location": { "latitude": 25.87972, "longitude": -97.50417 },
+    "age": 49,
+    "accepted_offers": 97,
+    "canceled_offers": 0,
+    "average_reply_time": 1498,
+    "distance_to_office": 740.4404470185,
+    "score": 8.232711638
+  },
+  {
+    "id": "7225b32c-6dfe-4e0d-83bf-6504da11d2c9",
+    "name": "Jason Haas",
+    "location": { "latitude": 20.22816, "longitude": -103.5687 },
+    "age": 50,
+    "accepted_offers": 100,
+    "canceled_offers": 13,
+    "average_reply_time": 611,
+    "distance_to_office": 467.8661842039,
+    "score": 8.1684202611
+  },
+  {
+    "id": "8f535855-d36a-4a90-982f-94e1cb461201",
+    "name": "Sarah Colon",
+    "location": { "latitude": 19.8173, "longitude": -97.35992 },
+    "age": 80,
+    "accepted_offers": 99,
+    "canceled_offers": 15,
+    "average_reply_time": 826,
+    "distance_to_office": 198.4185556923,
+    "score": 8.1066107959
+  },
+  {
+    "id": "e00111e5-d29d-45df-8f1d-a1100cc36d8c",
+    "name": "Jennifer Dunn",
+    "location": { "latitude": 22.49396, "longitude": -105.36369 },
+    "age": 28,
+    "accepted_offers": 92,
+    "canceled_offers": 16,
+    "average_reply_time": 61,
+    "distance_to_office": 728.3595441517,
+    "score": 8.0988818235
+  },
+  {
+    "id": "0d1886c2-90ee-4951-b648-7b1e944846ec",
+    "name": "Mary Baker",
+    "location": { "latitude": 19.04222, "longitude": -98.11889 },
+    "age": 30,
+    "accepted_offers": 100,
+    "canceled_offers": 4,
+    "average_reply_time": 410,
+    "distance_to_office": 119.072801605,
+    "score": 7.9245729774
+  }
+]
