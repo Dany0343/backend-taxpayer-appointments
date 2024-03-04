@@ -1,4 +1,3 @@
-```markdown
 # KEA Developer Position Takehome Test Solution
 
 ## Assumptions
