@@ -9,7 +9,7 @@ accepted_offers_weight = 0.3
 cancelled_offers_weight = 0.3
 average_reply_time_weight = 0.2
 
-office_location = (19.3797208, -99.1940332) # Change if necessary
+office_location = (19.3797208, -99.1940332)  # Change if necessary
 
 
 # main function
@@ -17,7 +17,7 @@ def main():
     # Reading data
     global df
     df = read_data()
-    
+
     # Once is loaded we can iterate over it
     iterate_data()
 
@@ -31,7 +31,8 @@ def iterate_data():
     # Create normalized variables for all the values
 
     # Adding distances to df to get min and max values
-    df['distance_to_office'] = df.apply(calculate_distances, axis=1) # Apply calculate_distances function to the dataframe
+    # Apply calculate_distances function to the dataframe
+    df['distance_to_office'] = df.apply(calculate_distances, axis=1)
 
     # Create score column
     df['score'] = None
@@ -55,31 +56,38 @@ def iterate_data():
     # Distance min and max
     distance_max = df['distance_to_office'].max()
     distance_min = df['distance_to_office'].min()
-    
-    for index,row in df.iterrows():
+
+    for index, row in df.iterrows():
         # Access row columns using row['column_name'] and pass the row and min and max to the normalize_data function to get the normalized value
         age_normalized = normalize_data(row['age'], age_min, age_max)
-        accepted_offers_normalized = normalize_data(row['accepted_offers'], accepted_offers_min, accepted_offers_max)
-        canceled_offers_normalized = normalize_data(row['canceled_offers'], canceled_offers_min, canceled_offers_max)
-        average_reply_time_normalized = normalize_data(row['average_reply_time'], average_reply_time_min, average_reply_time_max)
-        distance_normalized = normalize_data(row['distance_to_office'], distance_min, distance_max)
+        accepted_offers_normalized = normalize_data(
+            row['accepted_offers'], accepted_offers_min, accepted_offers_max)
+        canceled_offers_normalized = normalize_data(
+            row['canceled_offers'], canceled_offers_min, canceled_offers_max)
+        average_reply_time_normalized = normalize_data(
+            row['average_reply_time'], average_reply_time_min, average_reply_time_max)
+        distance_normalized = normalize_data(
+            row['distance_to_office'], distance_min, distance_max)
 
         # For 'positive' criteria, such as age and offers accepted:
-        age_score = age_normalized * age_weight  
-        accepted_offers_score = accepted_offers_normalized * accepted_offers_weight  
+        age_score = age_normalized * age_weight
+        accepted_offers_score = accepted_offers_normalized * accepted_offers_weight
 
         # For 'negative' criteria, like offers canceled and response time:
-        canceled_offers_score = (1 - canceled_offers_normalized) * cancelled_offers_weight 
-        average_reply_time_score = (1 - average_reply_time_normalized) * average_reply_time_weight  
+        canceled_offers_score = (
+            1 - canceled_offers_normalized) * cancelled_offers_weight
+        average_reply_time_score = (
+            1 - average_reply_time_normalized) * average_reply_time_weight
 
-        # Note: The inversion (1 - normalized_value) assumes that higher values are worse. 
+        # Note: The inversion (1 - normalized_value) assumes that higher values are worse.
 
-        distance_score = distance_normalized * distance_weight  # Calculate the score for distance, may be neutral
+        # Calculate the score for distance, may be neutral
+        distance_score = distance_normalized * distance_weight
 
         # Calculate the final score
-        score = (age_score + accepted_offers_score + canceled_offers_score + average_reply_time_score + distance_score) * 10  # Final score calculation
+        score = (age_score + accepted_offers_score + canceled_offers_score +
+                 average_reply_time_score + distance_score) * 10  # Final score calculation
 
-        
         df.at[index, 'score'] = score
 
     # Sort Dataframe and export it to JSON
@@ -96,8 +104,8 @@ def normalize_data(row, min_value, max_value):
 # Using geodesic to calculate distances from office to client location
 def calculate_distances(row):
     client_location = row['location']['latitude'], row['location']['longitude']
-    distance = geodesic(office_location, client_location).kilometers 
-    return distance    
+    distance = geodesic(office_location, client_location).kilometers
+    return distance
 
 
 def sort_and_make_json():
@@ -113,6 +121,10 @@ def sort_and_make_json():
     # Look for the top 10 and export it to a JSON
     top_10_clients = df_sorted.head(10)
     top_10_clients.to_json('top_10_taxpayers.json', orient='records')
+
+    # Just in case, print it in screen
+    print(top_10_clients.to_string(index=False))
+
 
 if __name__ == "__main__":
     main()
