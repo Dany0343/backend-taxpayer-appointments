@@ -29,9 +29,8 @@ def read_data():
 
 def iterate_data():
     # Create normalized variables for all the values
-    # Distance is computed different because of its nature
 
-    # Adding distances to df to get the normalized value of the iteration
+    # Adding distances to df to get min and max values
     df['distance_to_office'] = df.apply(calculate_distances, axis=1) # Apply calculate_distances function to the dataframe
 
     # Create score column
@@ -69,11 +68,12 @@ def iterate_data():
                  accepted_offers_normalized * accepted_offers_weight + 
                  canceled_offers_normalized * cancelled_offers_weight + 
                  average_reply_time_normalized * average_reply_time_weight + 
-                 distance_normalized * distance_weight)
+                 distance_normalized * distance_weight) * 10
         
         df.at[index, 'score'] = score
 
-    print(df)
+    # Sort Dataframe and export it to JSON
+    sort_and_make_json()
 
 
 def normalize_data(row, min_value, max_value):
@@ -89,6 +89,20 @@ def calculate_distances(row):
     distance = geodesic(office_location, client_location).kilometers 
     return distance    
 
+
+def sort_and_make_json():
+    # Eliminate distance to office column because it's no loger used
+    # df.drop('distance_to_office', axis=1, inplace=True)
+
+    # Sort df by "score" column
+    df_sorted = df.sort_values(by='score', ascending=False)
+
+    # Export it to a JSON
+    df_sorted.to_json('sorted_taxpayers.json', orient='records')
+
+    # Look for the top 10 and export it to a JSON
+    top_10_clients = df_sorted.head(10)
+    top_10_clients.to_json('top_10_taxpayers.json', orient='records')
 
 if __name__ == "__main__":
     main()
